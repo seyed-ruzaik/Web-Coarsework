@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SL CRICKET</title>
+	<link href = "css/WebDesign-Coursework-Student1.css" rel = "stylesheet" type = "text/css">
+	
+	<style>
+		body{
+			background-image: url("images/batsman.png");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+		form{
+			background: rgb(0, 0, 0, 0.8);
+		}
+	</style>
+</head>
+
+<body bgcolor = "black">
+	
+	<div>
+		<img src = "images/uowLogo.jpeg">
+		<img src = "images/iitLogo.jpeg" class = "iit">
+	</div>
+	
+	<div id = "heading"  class = "fonts">
+		<h1>SL CRICKET</h1>
+	</div><br>
+	
+	<form>
+	<div id = "group">
+		<p id = "studIntro" class = "fonts">Students in our group:<br><br></p>
+		<table  border = "1"  class = "fonts">
+		
+			<tr>
+				<th>Name</th>
+				<th>IIT Student No.</th>
+				<th>UOW No.</th>
+			</tr>
+			
+			<tr>
+				<td>Shevin Weerakone</td>
+				<td>2019393</td>
+				<td>w1761333</td>
+			</tr>
+			
+			<tr>
+				<td>Yasitha Gamage</td>
+				<td>2019419</td>
+				<td>w1761101</td>
+			</tr>
+			
+			<tr>
+				<td>Ginura Weliwatta</td>
+				<td>2019469</td>
+				<td>w1761118</td>
+			</tr>
+			
+			<tr>
+				<td>Seyed Ruzaik</td>
+				<td>2018439</td>
+				<td>w1761768</td>
+			</tr>
+			
+		</table><br><br>
+	</div>
+	</form>
+	
+	<br><br>
+	
+	<input type = "button"  class = "btn"  onclick = "fontSmall()"  value = "Small font">
+	<input type = "button"  class = "btn"  onclick = "fontBig()"  value = "Big font">
+	<input type = "button"  class = "btn"  onclick = "fontVeryBig()"  value = "Very Big font">
+	<input type = "button"  class = "btn"  onclick = "fontOriginal()"  value = "Original font">
+	
+	<script type = "text/javascript">
+	
+		function fontSmall() {
+			var elem = document.querySelectorAll(".fonts");
+			for ( var i = 0; i < elem.length; i ++ ) {
+				elem[i].style.fontSize = "20px";
+			}
+			var elem2 = document.querySelectorAll(".btn");
+			for ( var i2 = 0; i2 < elem2.length; i2 ++ ) {
+				elem2[i2].style.fontSize = "10px";
+			}
+		}
+	
+		function fontBig() {
+			var elem = document.querySelectorAll(".fonts");
+			for ( var i = 0; i < elem.length; i ++ ) {
+				elem[i].style.fontSize = "40px";
+			}
+			var elem2 = document.querySelectorAll(".btn");
+			for ( var i2 = 0; i2 < elem2.length; i2 ++ ) {
+				elem2[i2].style.fontSize = "30px";
+			}
+		}
+		
+		function fontVeryBig() {
+			var elem = document.querySelectorAll(".fonts");
+			for ( var i = 0; i < elem.length; i ++ ) {
+				elem[i].style.fontSize = "50px";
+			}
+			var elem2 = document.querySelectorAll(".btn");
+			for ( var i2 = 0; i2 < elem2.length; i2 ++ ) {
+				elem2[i2].style.fontSize = "40px";
+			}
+		}
+		
+		function fontOriginal() {
+			var elem = document.querySelectorAll(".fonts");
+			for ( var i = 0; i < elem.length; i ++ ) {
+				elem[i].style.fontSize = "30px";
+			}
+			var elem2 = document.querySelectorAll(".btn");
+			for ( var i2 = 0; i2 < elem2.length; i2 ++ ) {
+				elem2[i2].style.fontSize = "16px";
+			}
+		}
+
+	</script>
+	
+</body>
+</html>

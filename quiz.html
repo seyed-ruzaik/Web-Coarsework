@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+
+		<title>
+			 Welcome to the Cricket Quiz
+		</title>
+		<link rel="stylesheet" type="text/css" href="css/quiz.css">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+
+	<body>
+
+		<div class="container">
+			<nav>
+				<a class="nav-logo" href="index.html">
+					<img src="images/logo.png" alt="logo-slcricket" height="50px">
+				</a>
+
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="quiz.html">Quiz</a></li>
+					<li><a href="Web-CW-Part2.html">Shop</a></li>
+					<li><a href="comment.html">Contact</a></li>
+					<div class="dropdown">
+						<li><a href="#" >More</a></li>
+						<div class="dropdown-content">
+							<a href="matchFixtures.html">Matches</a>
+							<a href="ranking.html">Ranking</a>
+							<a href="history.html">History</a>
+							<a href="Web-CW-mySubTopic.html">Uniform Color Code</a>
+							<a href="sitemap.html">SiteMap</a>
+						</div>
+					</div>
+
+				</ul>
+			</nav>
+		</div>
+
+		<div class="wrapper">
+			<center>
+				<div id="test">
+					<div class="status-container">
+						<h2 id="status">
+						
+						</h2>
+					</div>
+
+					<p id="question">
+					</p>
+					<div id ="time"> Time Remaining:
+					<div id ="timer">
+					</div>
+					</div>
+					<div id="answers">
+					</div>
+				</div>
+			</center>
+		</div>
+
+		
+		<script type="text/javascript">
+			
+			    document.getElementById('timer').innerHTML =
+				002 + ":" + 30;
+				myTimer();
+				start();
+				
+					
+
+			function myTimer() {
+				
+				var presentTime =
+				document.getElementById('timer').innerHTML;
+				var timeArray = presentTime.split(/[:]+/);
+				var m = timeArray[0];
+				var s = checkSecond((timeArray[1] - 1));
+				if(s==59){m=m-1}
+				
+				document.getElementById('timer').innerHTML =
+			    m + ":" + s;
+				console.log(m)
+				setTimeout(myTimer, 1000);
+				if (m == 0 && s == 0){
+				alert("Time out, Try again !!! ");
+				   clearInterval(setTimeout);
+				   reloadQuiz();
+				    }
+				}
+				function checkSecond(sec) {
+				if (sec < 10 && sec >= 0) {sec = "0" + sec}; 
+				if (sec < 0) {sec = "59"};
+				return sec;
+			      }	
+            
+			
+			
+			
+			
+			    var startTime, endTime;
+
+				function start() {
+				  startTime = new Date();
+				};
+
+				
+			
+				
+
+			var qPos = 0;
+			var test, textStatus;
+			var score = 0;
+			var q1,q2,q3,q4;
+
+			var questions =[
+				["Who is the current ODI captain of Sri Lanka ?.", "L.Malinga", "D.Warner" ,"D.Karunarathne", "S.Smith","C"],
+				["In which year did Sri Lanka host the T20 worldcup for the first time ?.", "2009", "2008", "2012", "2014","C"],
+				["Who among the following is the highest wicket taker in all formats of cricket?.", "SK Warne" ,"M Muralitharan" ,"Jasprit Bumrah" ,"L.Malinga","B"],
+				["In which year did Sri Lanka won the T20 worldcup ?.", "2012" ,"2014" , "2016" ,"2010","B"],
+				["In which year did Sri Lanka won the first ever ODI worldcup ?.", "1982" ,"1992" ,"1996" ,"2011","C"],
+				["Who scored the most number of centuries for Sri Lanka in ODI ?.", "Arvinda desilva" ,"Kumar Sangakkara" ,"Angelo Mathews" ,"Virat Kohli","B"],
+				["Lasith Malinga's jersey number is ?.", "22" ,"14" ,"99" ,"69","C"],
+				["M.Muralitharan is a ?.", "Off spin bowler" ,"Leg break bowler" ,"Right arm fast bowler" ,"Left arm fast bowler","A"],
+				["Who lead the Sri Lankan team in 1996 worldcup ?", "Arvinda desilva" ,"Arjuna Ranathunga" ,"Mahela Jayawardane" ,"Dav Whatmore","B"],
+				["How many ODI worldcups did Sri Lanka win ?", "3" ,"1" ,"6" ,"4","B"]
+		    ];
+			
+		</script>
+		<script type="text/javascript">
+			
+			var sum = new Array();
+			
+
+			function renderQuestion()
+			{
+				test = document.getElementById("test");
+				textStatus = document.getElementById("status")
+				var question = document.getElementById("question");
+				var answers = document.getElementById("answers");
+				
+				
+				  endTime = new Date();
+				  var timeDiff = endTime - startTime; 
+				  
+				  timeDiff /= 1000;
+
+				   
+				  var seconds = Math.round(timeDiff);
+				  var minutes = Math.floor(seconds / 60);
+				  var rseconds = seconds - minutes * 60;
+				  if(minutes == 0){
+				  console.log(seconds + " Seconds");
+				  }else{
+					 console.log(minutes +" Minute " + " and "+ rseconds + + " Seconds");
+
+					}
+				
+
+				if(qPos >= questions.length)
+				{ if (score <=15 && score>=10){
+				   document.body.style.backgroundColor="#175f66";
+					test.innerHTML = "<p id='end-text'>Not bad!!! Your score is " + score + " || "  + "Time taken: "+ minutes +" Minute " + " and "+ rseconds + " Seconds" +" <\/p><br />";
+					
+					b = 10;
+					for(i = 0 ; i<10 ; i++){
+					a = i+1;
+					
+					test.innerHTML  += "<div id = 'summary'> Question "+ a +": Your answer is "+sum[i]+" - Correct answers is "+questions[qPos-b][5]+"<\/div><br/>";
+					b = b-1;
+					}
+				 }
+					else if(score >= 17 ){
+					document.body.style.backgroundColor="#17662c";
+					test.innerHTML = "<p id='end-text'>Excellent !!! Your score is " + score + " || " + "Time taken: "+ minutes +" Minute " + " and "+ rseconds + " Seconds"  + " <\/p><br />";
+					
+					b = 10;
+					for(i = 0 ; i<10 ; i++){
+					a = i+1;
+                    test.innerHTML  += "<div id = 'summary'> Question "+ a +": Your answer is "+sum[i]+" - Correct answers is "+questions[qPos-b][5]+"<\/div><br/>";					
+					b = b-1;
+					}
+				}
+					
+					
+					
+					else if(score > 0 && score < 10){
+					document.body.style.backgroundColor="#a12020";
+					test.innerHTML = "<p id='end-text'>Very poor!!! Your score is " + score + " ||   "  + "Time taken: "+ minutes +" Minute " + " and "+ rseconds + " Seconds" +" <\/p><br />";
+				    
+					b = 10;
+					for(i = 0 ; i<10 ; i++){
+					a = i+1	;				
+					test.innerHTML  += "<div id = 'summary'> Question "+ a +": Your answer is "+sum[i]+" - Correct answers is "+questions[qPos-b][5]+"<\/div><br/>";
+					 b = b-1;
+					 }
+				  }
+					
+					else{
+					document.body.style.backgroundColor="#a12020";
+					test.innerHTML = "<p id='end-text'>Very poor!!! Your score is " + 0 + " ||   "  + "Time taken: "+ minutes +" Minute " + " and "+ rseconds + " Seconds" +" <\/p><br />";
+				    
+					b = 10;
+					for(i = 0 ; i<10 ; i++){
+					a = i+1	;				
+					test.innerHTML  += "<div id = 'summary'> Question "+ a +": Your answer is "+sum[i]+" - Correct answers is "+questions[qPos-b][5]+"<\/div><br/>";
+					 b = b-1;
+					 }
+				  }
+					
+					
+				} 
+				
+				
+			      
+					
+            
+				textStatus.innerHTML = " Question " + (qPos+1);
+				
+				
+				
+				question.innerText = questions[qPos][0];
+
+				
+				q1 = questions[qPos][1]; 
+				q2 = questions[qPos][2]; 
+				q3 = questions[qPos][3]; 
+                q4 = questions[qPos][4];
+				answers.innerHTML = "";
+				answers.innerHTML += "<input class=\"answer\" type=\"radio\" name=\"answers\" value=\"A\" checked> " + q1 + "<\/input><br />";			
+				answers.innerHTML += "<input class=\"answer\" type=\"radio\" name=\"answers\" value=\"B\"> " + q2 + "<\/input><br />";
+				answers.innerHTML += "<input class=\"answer\" type=\"radio\" name=\"answers\" value=\"C\"> " + q3 + "<\/input><br />";
+				answers.innerHTML += "<input class=\"answer\" type=\"radio\" name=\"answers\" value=\"D\"> " + q4 + "<\/input><br />";
+				answers.innerHTML += "<br />";
+				answers.innerHTML += "<button class=\"btn\" onclick=\"checkAnswer();\">Submit<\/button>";
+				answers.innerHTML += "<button class=\"btn2\" onclick=\"main();\">Go To About<\/button>";
+				
+				qPos+=1;
+			}
+			
+			
+			
+			function checkAnswer()
+			{
+				var choices = document.getElementsByName("answers");
+				var ans;
+				var I = 0;
+
+				
+				for(I = 0;I < choices.length;I++)
+				{
+					if(choices[I].checked == true)
+					{
+						ans = choices[I].value;
+						
+					}
+				}
+                 
+				 
+				 
+				if(questions[qPos-1][5] == ans)
+				{
+				    sum.push(ans);
+					score+=2;
+				}else{
+				    sum.push(ans)
+				    score -=1;
+				}
+
+				
+				renderQuestion();
+			}
+			
+			
+			
+			
+			
+			
+
+			
+		</script>
+		<script type="text/javascript">
+			
+
+			qPos = 0;
+			test = "";
+			textStatus = "";
+			score = 0;
+			q1 = "";
+			q2 = "";
+			q3 = "";
+			q4 = "";
+			q4 = "";
+			
+			renderQuestion();
+
+			function reloadQuiz()
+			{
+				location.reload();
+			}
+			function main(){
+				
+			location.href='about.html';
+				
+			}
+
+			
+		</script>
+	</body>
+</html>

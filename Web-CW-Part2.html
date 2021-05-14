@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>SL CRICKET</title>
+		<link href = "css/WebDesign-Coursework-Student1.css" rel = "stylesheet" type = "text/css">
+		
+		<style>
+			body{
+				background-image: url("images/slTeam1.png");
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+			}	
+			
+			form{
+				background: rgb(0, 0, 0, 0.8);
+				color: #ffffff;
+				padding-left: 20px;
+			}
+			
+			.mainDiv{
+				display: flex;
+			}
+			
+			.itemDiv{
+				background-color: #0011ff;
+				color: #dbdbd0;
+				max-width: 400px;
+				max-height: 700px;
+				text-align: center;
+				margin-right: 50px;
+				padding-right: 10px;
+				padding-left: 10px;
+			}
+			
+			.itemDiv img{
+				width: 95%;
+				max-width: 500px;
+				max-height: 330px;
+			}
+			
+			.itemDiv #prodBtn{
+				background-color: black;
+				color: #f2e716;
+			}
+			
+			.itemDiv:hover{
+				background-color: #f2e716;
+				color: #1f1f1f;
+				transition: 1s;
+			}
+			
+			#prodBtn:hover{
+				background-color: blue;
+				color: white;
+				transition: 1s;
+			}
+			
+			img{
+				border-bottom: 7px solid black;
+				padding-top: 15px;
+			}
+			
+			.price{
+				font-size: 25px;
+			}
+			
+			#bill{
+				font-size: 20px;
+				font-weight: bold;
+				background-color: #f2e716;
+				color: black;
+				height: 50px;
+				margin-left: 35%;
+			}
+			
+			#bill:hover{
+				background-color: blue;
+				color: white;
+				transition: 1s;
+			}
+		</style>
+	</head>
+	
+	<body>
+	
+		<div id = "heading"  class = "headF">
+			<h1>SL CRICKET</h1>
+		</div><br>
+	
+		<form class = "fonts"  id = "pageForm">
+		
+			<br><br>
+			
+			<h1>Your Personal Details</h1>
+		
+			<label>First Name</label><br>
+			<input id = "textIn1"  class = "textF"  type = "text"><br><br>
+			<label>Last Name</label><br>
+			<input id = "textIn2"  class = "textF"  type = "text"><br><br>
+			<label>Age</label><br>
+			<input id = "num"  class = "numI"  type = "number"  min = "1"  max = "200"><br><br>
+			<label>Date of birth</label><br>
+			<input id = "dateIn"  class = "dateI"  type = "date"><br><br>
+			<label>Gender:</label><br>
+			<input type = "radio"  id = "radioG1"  name = "gender"  value = "Male">
+			<label>Male</label><br>	
+			<input type = "radio"  id = "radioG2"  name = "gender"  value = "Female">
+			<label>Female</label><br><br>
+			<input type = "reset"  value = "Reset">
+			<input type = "submit"  value = "Submit"  onclick = "requiredFunc()"><br><br>
+			
+			<div class = "mainDiv">
+			<div class = "itemDiv">
+				<img src = "images/bat.png"  alt = "SS Cricket Bat">
+				<h1 class="content">SS Cricket Bat</h1>
+				<p>A combination of great grip and handling, allowing for controlled power. It's handle has been designed for shock absorption. This allows for ultimate performance.</p>
+				<p class = "price">&#163 380.00</p>
+				<input type = "button"  class = "btn"  id = "prodBtn"  onclick = "batFunc()"  value = "Add to Cart"><br><br>
+			</div>
+			
+			<div class = "itemDiv">
+				<img src = "images/helmet.png"  alt = "Cricket Helmet">
+				<h1>Titanium Cricket Helmet</h1>
+				<p>It has a high impact resistant outer shell. The inner shell is made up of shock absorbent sponge foam. It has many small vents for air circulation. </p>
+				<p class = "price">&#163 189.99</p>
+				<input type = "button"  class = "btn"  id = "prodBtn"  onclick = "helmetFunc()"  value = "Add to Cart"><br>
+			</div>	
+			
+			<div class = "itemDiv">
+				<img src = "images/gloves.png"  alt = "SS Cricket Gloves">
+				<h1>Cricket Gloves</h1>
+				<p>They have leather palms. It offers great comfort. They are also light weight and this allows for greater flexibility. They can be used at the highest level of play.</p>
+				<p class = "price">&#163 78.50</p>
+				<input type = "button"  class = "btn"  id = "prodBtn"  onclick = "glovesFunc()"  value = "Add to Cart"><br>
+			</div>
+			</div>
+			
+			<br><br>
+			
+			<div>
+				<input type = "button"  id = "bill"  class = "btn"  onclick = "totCost()"  value = "Calculate Bill">
+			</div>
+			
+			<br>
+		</form>
+		
+		<script type = "text/javascript">
+			
+			var name1;
+			var name2;
+			var temp;
+			var complete = 1;
+			var batTot = 0;
+			var helmetTot = 0;
+			var glovesTot = 0;
+			var batGot = 0;
+			var helmetGot = 0;
+			var glovesGot = 0;
+		
+			function requiredFunc() {
+				var empty1 = document.forms["pageForm"]["textIn1"].value;
+				name1 = empty1;
+				var filled1  = "";
+				if ( empty1 == "" ) {
+					filled1  = "First name \n";
+				}
+				var empty2 = document.forms["pageForm"]["textIn2"].value;
+				name2 = empty2;
+				var filled2  = "";
+				if ( empty2 == "" ) {
+					filled2 = "Second name \n";
+				}
+				var empty3 = document.forms["pageForm"]["num"].value;
+				var filled3  = "";
+				if ( empty3 == "" ) {
+					filled3 = "Age \n";
+				}
+				var empty4 = document.forms["pageForm"]["dateIn"].value;
+				var filled4  = "";
+				if ( empty4 == "" ) {
+					filled4 = "Date of birth \n";
+				}
+				var check = false;
+				var filled5 = "";
+				if ( document.getElementById("radioG1").checked ) {
+					check = true;
+					temp = 1;
+				}else {
+					filled5 = "Gender \n";
+					temp = 2;
+				}
+				if ( document.getElementById("radioG2").checked ) {
+					check = true;
+					temp = 1;
+				}else {
+					filled5 = "Gender \n";
+					temp = 2;
+				}
+				if ( empty1 != ""  &  empty2 != ""  &  empty3 != ""  &  empty4 != ""){
+					complete = 1;
+				}else{
+					complete = 1;
+					alert("NOTE - Filling in the following is mandatory : \n" + filled1 + filled2 + filled3 + filled4 + filled5);
+				}
+			}
+			
+			function batFunc(){
+				if ( complete == 1 ){
+					var orderNum = prompt("Please enter the quantity of bats you want to purchase : ");
+					var multiply = orderNum * 380.00;
+					batGot += orderNum;
+					batTot += multiply;
+					alert("The total purchase cost of bats is  :  \u00A3"  + batTot);
+				}
+			}
+			
+			function helmetFunc(){
+				if ( complete == 1 ){
+					var orderNum = prompt("Please enter the quantity of bats you want to purchase : ");
+					var multiply = orderNum * 189.99;
+					helmetGot += orderNum;
+					helmetTot += multiply;
+					alert("The total purchase cost of helmets is  :  \u00A3" + helmetTot);
+				}
+			}
+			
+			function glovesFunc(){
+				if ( complete == 1 ){
+					var orderNum = prompt("Please enter the quantity of bats you want to purchase : ");
+					var multiply = orderNum * 78.50;
+					glovesGot += orderNum;
+					glovesTot += multiply;
+					alert("The total purchase cost of gloves is  :  \u00A3" + glovesTot);
+				}
+			}
+			
+			function totCost(){
+				var totCost = batTot + helmetTot + glovesTot;
+				alert("Hi " + name1 + ", you purchased " + batGot + " bats, " + helmetGot + " helmets and " + glovesGot + " gloves \n" + 
+				"Your total bill is  :  " + "\u00A3 " + totCost);
+			}
+		</script>
+	
+	</body>
+</html>

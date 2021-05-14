@@ -1,0 +1,67 @@
+.iit {
+	float: right;
+	padding-top: 40px;
+	width: 200px;
+}
+
+#heading {
+	background: rgb(0, 7, 107, 0.8);
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color: #ffee00;
+	text-align: center;
+	font-size: 30px;
+	text-shadow: 3px 3px #000000;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+th,td{
+	padding: 20px;
+}
+
+tr:hover {
+	background-color: #000ed9;
+	transition: 1s;
+}
+
+#group {
+	font-size: 30px;
+	color: #ffee00;
+}
+
+#studIntro {
+	color: #ffee00;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+.btn {
+	text-align: center;
+	width: 330px;
+	padding: 10px;
+	color: #ffee00;
+	background-color: #0712b3;
+	border: none;
+	border-radius: 2px;
+	font-size: 16px;
+}
+
+.btn:hover {
+	color: #000000;
+	background-color: #0084ff;
+	transition: 1s;
+}
+
+input {
+	font-size: 16px;
+	background-color: #f2e716;
+	border: 2px solid black;
+}

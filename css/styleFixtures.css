@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+}
+
+body{
+    background:linear-gradient(rgba(26,26,26,0.7),rgba(26,26,26,0.7)), url("../images/slides/slide2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card{
+    padding-left: 10px;
+    width: 39vh;
+    height: 15vh;
+    color: #000;
+    background-color: #fff;
+    overflow: hidden;
+    font-size: 13px;
+    border:1px solid rgba(128,128,128,0.3);
+}
+
+.thirdtd{
+    padding-left: 80px;
+    text-align: right;
+}
+
+.headertr{
+    color: grey;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.score-container{
+    background-color: white;
+    width: 81.3vh;
+    margin: 40px auto;
+    box-shadow: 0px 0px 10px 2px grey;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-card{
+    height: 50px;
+    background-color: #fcc010;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}
+
+.top-card p{
+    margin-top: 18px;
+}
+
+.bottom-card{
+    display: flex;
+    flex-direction: row;
+}
